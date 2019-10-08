@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:local="clr-namespace:MangagawaPH.Views"             
+             xmlns:fa="clr-namespace:MangagawaPH"
+             IsPresented="False"           
+             NavigationPage.HasNavigationBar="False"
+             x:Class="MangagawaPH.Views.MainMasterDetailPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="☰" BackgroundColor="#fc2c03" NavigationPage.HasNavigationBar="False">
+            <StackLayout BackgroundColor="#fc2c03">
+                <Grid>
+                    <Image Source="bg.png" Aspect="AspectFill" Opacity="0.7" />
+                    <StackLayout Padding="0,20,0,0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <controls:CircleImage x:Name="ProfilePic" BorderColor="White" BorderThickness="2" Source="profile.png" Aspect="AspectFill" WidthRequest="180" HeightRequest="180" />
+                        <Label x:Name="LblFullname" TextColor="White" FontSize="Large" HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </Grid>
+                <ListView x:Name="navigationDrawerList"  
+                  RowHeight="60"  
+                  SeparatorVisibility="None"  
+                  ItemSelected="OnMenuSelected"  
+                  BackgroundColor="White">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout VerticalOptions="FillAndExpand"  
+                                 Orientation="Horizontal"  
+                                 Padding="20,10,0,10"  
+                                 Spacing="20">
+                                    <Label Text="{Binding Icon}"  
+                                     FontSize="Medium"  
+                                     VerticalOptions="Center"  
+                                     FontFamily="fa-solid-900.ttf#FontAwesome"
+                                     TextColor="Black"/>
+                                    
+                                    <Label Text="{Binding Title}"  
+                                     FontSize="Medium"  
+                                     VerticalOptions="Center"  
+                                     TextColor="Black"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage  x:Name="MasterPage">
+            <x:Arguments>
+                <local:FindJobs/>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

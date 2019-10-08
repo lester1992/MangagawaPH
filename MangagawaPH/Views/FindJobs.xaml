@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             mc:Ignorable="d"  
+             Title="Find Work"
+             x:Class="MangagawaPH.Views.FindJobs">
+    <NavigationPage.TitleView>
+        <Frame Padding="0" Margin="0" HasShadow="False">
+            <SearchBar BackgroundColor="Transparent"></SearchBar>
+        </Frame>
+    </NavigationPage.TitleView>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="search.png" Text="Search"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        
+        <ListView x:Name="MainListView"  
+             HasUnevenRows="True"  
+             ItemTapped="MainListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <controls:CircleImage BorderColor="White" BorderThickness="2" Source="ic_launcher.png" Aspect="AspectFill" WidthRequest="100" HeightRequest="100" />
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="XAMARINFORMS"  
+                                 FontSize="Medium"                                 
+                                 VerticalOptions="Center"/>
+                                    <Label Text="LISTVIEWACTION"  
+                                 FontSize="Small"                                   
+                                 VerticalOptions="Center"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>    
+</ContentPage>
