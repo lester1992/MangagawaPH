@@ -150,11 +150,20 @@ namespace MangagawaPH.ViewModel
         }
         public static async Task<string> GetFile(string fileName)
         {
-            var imageUrl = await firebaseStorage
+            try
+            {
+                var imageUrl = await firebaseStorage
                 .Child("Freelancer")
                 .Child(fileName)
                 .GetDownloadUrlAsync().ConfigureAwait(false);
-            return imageUrl;
+                return imageUrl;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"Error:{e}");
+                return "default_pic.png";
+            }
+            
         }
     }
 } 

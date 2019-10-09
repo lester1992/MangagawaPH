@@ -5,6 +5,7 @@ using System.Text;
 using Xamarin.Forms;
 using MangagawaPH.Views;
 using MangagawaPH.Models;
+using System.Security.Cryptography;
 
 namespace MangagawaPH.ViewModel
 {
@@ -122,6 +123,15 @@ namespace MangagawaPH.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs("Region"));
             }
         }
+        private string usertype;
+        public string UserType
+        {
+            get { return usertype; }
+            set {
+                usertype = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("UserType"));
+            }
+        }
         public Command SignUpCommand
         {
             get {
@@ -133,6 +143,18 @@ namespace MangagawaPH.ViewModel
                         App.Current.MainPage.DisplayAlert("", "Password must be same as above!", "OK");
                 });
             }
+        }
+        public string SHA512StringHash(String input)
+        {
+            SHA512 shaM = new SHA512Managed();            
+            byte[] data = shaM.ComputeHash(Encoding.UTF8.GetBytes(input));            
+            StringBuilder sBuilder = new StringBuilder();            
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }            
+            input = sBuilder.ToString();
+            return (input);
         }
         private async void SignUp()
         {
@@ -158,15 +180,16 @@ namespace MangagawaPH.ViewModel
             model.DailyRate = Convert.ToInt32(DailyRate);
             model.Experience.Add(EmptyExp);
             model.Email = Email;
-            model.Password = Password;
-
+            model.Password = SHA512StringHash(Password);
+            model.IsFreelancer = UserType == "Worker" ? true : false;
             if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
                 await App.Current.MainPage.DisplayAlert("Empty Values", "Please enter Email and Password", "OK");
             else
             {
                 //call AddUser function which we define in Firebase helper class
                 var user = await FirebaseHelper.AddUser(model);
-                var imagepath = await FirebaseHelper.GetFile(email + ".png");
+                //var imagepath = await FirebaseHelper.GetFile(email + ".png");
+                var imagepath = "default_pic.png";
                 if (user)
                 {
                     await App.Current.MainPage.DisplayAlert("SignUp Success", "", "Ok");

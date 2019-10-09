@@ -19,6 +19,7 @@ namespace MangagawaPH.Models
         public int DailyRate { get; set; }
         public List<RevHistory> Reviews { get; set; }
         public string Password { get; set; }
+        public bool IsFreelancer { get; set; }
     }
     class LocationInfo
     {

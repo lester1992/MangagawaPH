@@ -7,16 +7,13 @@
              mc:Ignorable="d"  
              Title="Find Work"
              x:Class="MangagawaPH.Views.FindJobs">
-    <NavigationPage.TitleView>
-        <Frame Padding="0" Margin="0" HasShadow="False">
-            <SearchBar BackgroundColor="Transparent"></SearchBar>
-        </Frame>
+    <NavigationPage.TitleView>        
+            <SearchBar x:Name="txtSearchBar" Placeholder="Find work here.." BackgroundColor="White"></SearchBar>        
     </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="search.png" Text="Search"/>
+        <ToolbarItem Text="Search"/>
     </ContentPage.ToolbarItems>
-    <StackLayout>
-        
+    <StackLayout>        
         <ListView x:Name="MainListView"  
              HasUnevenRows="True"  
              ItemTapped="MainListView_ItemTapped">
@@ -29,14 +26,11 @@
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <controls:CircleImage BorderColor="White" BorderThickness="2" Source="ic_launcher.png" Aspect="AspectFill" WidthRequest="100" HeightRequest="100" />
-                                <StackLayout Grid.Column="1">
-                                    <Label Text="XAMARINFORMS"  
-                                 FontSize="Medium"                                 
-                                 VerticalOptions="Center"/>
-                                    <Label Text="LISTVIEWACTION"  
-                                 FontSize="Small"                                   
-                                 VerticalOptions="Center"/>
+                                <controls:CircleImage BorderColor="White" BorderThickness="2" Source="default_pic.png" Aspect="AspectFill" WidthRequest="100" HeightRequest="100" />
+                                <StackLayout Grid.Column="1" Margin="5">
+                                    <Label Text="John Lester Imperial" FontSize="Medium" TextColor="Black" VerticalOptions="Center"/>
+                                    <Label Text="All-Around" FontSize="Small" TextColor="Gray" VerticalOptions="Center"/>
+                                    <Label Text="Php 1700.00/Day" FontSize="Medium" TextColor="Green" VerticalOptions="Center"/>
                                 </StackLayout>
                             </Grid>
                         </ViewCell.View>

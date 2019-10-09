@@ -16,6 +16,12 @@
                     <Entry x:Name="Middlename" Placeholder="Middle Name" Text="{Binding Middlename}" />
                     <Entry x:Name="Lastname" Placeholder="Last Name" Text="{Binding Lastname}" />
                     <Picker x:Name="Position"></Picker>
+                    <Picker x:Name="UserType" Title="Select account type" ItemDisplayBinding="{Binding UserType}" SelectedItem="{Binding UserType}">
+                        <Picker.Items>
+                            <x:String>Worker</x:String>
+                            <x:String>Client</x:String>
+                        </Picker.Items>
+                    </Picker>
                     <Entry x:Name="DailyRate" Placeholder="Daily Rate" Text="{Binding DailyRate}" Keyboard="Numeric" />
                     <Entry x:Name="CellphoneNo" Placeholder="Cellphone #" Text="{Binding CellphoneNo}" Keyboard="Telephone" />
                     <Entry x:Name="Barangay" Placeholder="Barangay" Text="{Binding Barangay}" />
