@@ -42,7 +42,7 @@ namespace MangagawaPH.ViewModel
         public Command SignUp
         {
             get {
-                return new Command(() => { App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new SignUpPage())); });
+                return new Command(() => { App.Current.MainPage.Navigation.PushAsync(new NavigationPage(new SignUpPage()) { Title = "Register" }); });
             }
         }
 

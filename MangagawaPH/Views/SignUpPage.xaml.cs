@@ -20,6 +20,7 @@ namespace MangagawaPH.Views
             NavigationPage.SetHasNavigationBar(this, false);
             signUpVM = new SignUpVM();            
             BindingContext = signUpVM;
+            
         }
     }
 }

@@ -6,23 +6,28 @@
              mc:Ignorable="d"
              x:Class="MangagawaPH.MainPage"
              NavigationPage.HasNavigationBar="false"
-             BackgroundImageSource="bgmain"             
+             BackgroundImageSource="bgmain"     
+             Opacity="1"
              >
-
-    <StackLayout Spacing="20" Padding="50" VerticalOptions="Center">
-        <Image></Image>
-        <Label Text="MangagawaPH" FontSize="Title" HorizontalTextAlignment="Center" />
-        <Entry x:Name = "Email" Placeholder = "Email" Text="{Binding Email}"
+    <ContentPage.Content>
+        <ScrollView>
+            <Frame CornerRadius="5" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Opacity="1" Margin="5">
+                <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" BackgroundColor="#D3D3D3" Opacity="0.9">
+                    <Image></Image>
+                    <Label Text="MangagawaPH" FontSize="Title" HorizontalTextAlignment="Center" />
+                    <Entry x:Name = "Email" Placeholder = "Email" Text="{Binding Email}"
                    HeightRequest = "40"
                    Keyboard = "Email"/>
-        <Entry x:Name = "Password" Text="{Binding Password}" Placeholder = "Password"
+                    <Entry x:Name = "Password" Text="{Binding Password}" Placeholder = "Password"
                    HeightRequest = "40"
                    IsPassword = "True"/>
-        <Button x:Name= "loginbtn" Text = "Login " 
+                    <Button x:Name= "loginbtn" Text = "Login " 
                     Command="{Binding LoginCommand}"
                     HorizontalOptions = "FillAndExpand" TextColor="White" BackgroundColor="#fc2c03" />
-        <Label Text="or" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-        <Button x:Name="signup" Text="SignUp" Command="{Binding SignUp}" HorizontalOptions="FillAndExpand" />
-    </StackLayout>
-
+                    <Label Text="OR" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                    <Button x:Name="signup" Text="SignUp" Command="{Binding SignUp}" HorizontalOptions="FillAndExpand" BackgroundColor="White" />
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

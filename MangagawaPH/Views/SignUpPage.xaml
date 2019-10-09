@@ -5,22 +5,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              Title="Register"
+             BackgroundImageSource="bgmain"
              NavigationPage.HasNavigationBar="false"
              x:Class="MangagawaPH.Views.SignUpPage">
     <ContentPage.Content>
-        <StackLayout  Padding="10">
-            <Entry x:Name="Firstname" Placeholder="First Name" Text="{Binding Firstname}" />
-            <Entry x:Name="Middlename" Placeholder="Middle Name" Text="{Binding Middlename}" />
-            <Entry x:Name="Lastname" Placeholder="Last Name" Text="{Binding Lastname}" />            
-            <Entry x:Name="CellphoneNo" Placeholder="Cellphone #" Text="{Binding CellphoneNo}" Keyboard="Telephone" />
-            <Entry x:Name="DailyRate" Placeholder="Daily Rate" Text="{Binding DailyRate}" Keyboard="Numeric" />
-            <Entry x:Name="Barangay" Placeholder="Barangay" Text="{Binding Barangay}" />
-            <Entry x:Name="City" Placeholder="City" Text="{Binding City}" />
-            <Entry x:Name="Region" Placeholder="Province/Region" Text="{Binding Region}" /> 
-            <Entry x:Name="Emailentery" Placeholder="Email" Text="{Binding Email}" Keyboard="Email" />
-            <Entry x:Name="passwordentery" Placeholder="Password" Text="{Binding Password}" IsPassword="True"/>
-            <Entry x:Name="cfmpasswordentery" Placeholder="Re_Enter Password" Text="{Binding ConfirmPassword}" IsPassword="True" />
-            <Button x:Name="signup" Text="SignUp" Command="{Binding SignUpCommand}" HorizontalOptions = "FillAndExpand" TextColor="White" BackgroundColor="#fc2c03"/>
-        </StackLayout>
+        <ScrollView>
+            <Frame CornerRadius="5" VerticalOptions="FillAndExpand" BackgroundColor="Transparent" Opacity="1" Margin="5">
+                <StackLayout Spacing="20" Padding="50" VerticalOptions="Center" BackgroundColor="#D3D3D3" Opacity="0.9">
+                    <Entry x:Name="Firstname" Placeholder="First Name" Text="{Binding Firstname}" />
+                    <Entry x:Name="Middlename" Placeholder="Middle Name" Text="{Binding Middlename}" />
+                    <Entry x:Name="Lastname" Placeholder="Last Name" Text="{Binding Lastname}" />
+                    <Picker x:Name="Position"></Picker>
+                    <Entry x:Name="DailyRate" Placeholder="Daily Rate" Text="{Binding DailyRate}" Keyboard="Numeric" />
+                    <Entry x:Name="CellphoneNo" Placeholder="Cellphone #" Text="{Binding CellphoneNo}" Keyboard="Telephone" />
+                    <Entry x:Name="Barangay" Placeholder="Barangay" Text="{Binding Barangay}" />
+                    <Entry x:Name="City" Placeholder="City" Text="{Binding City}" />
+                    <Entry x:Name="Region" Placeholder="Province/Region" Text="{Binding Region}" />
+                    <Entry x:Name="Emailentery" Placeholder="Email" Text="{Binding Email}" Keyboard="Email" />
+                    <Entry x:Name="passwordentery" Placeholder="Password" Text="{Binding Password}" IsPassword="True"/>
+                    <Entry x:Name="cfmpasswordentery" Placeholder="Re_Enter Password" Text="{Binding ConfirmPassword}" IsPassword="True" />
+                    <Button x:Name="signup" Text="SignUp" Command="{Binding SignUpCommand}" HorizontalOptions = "FillAndExpand" TextColor="White" BackgroundColor="#fc2c03"/>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
